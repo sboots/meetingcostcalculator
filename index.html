@@ -9,7 +9,7 @@
 		<meta name="author" content="https://twitter.com/sboots2">
 		<!-- <link rel="icon" href="../../favicon.ico"> -->
 
-		<title>Meeting Cost Calculator – Core Public Service</title>
+		<title>Meeting Cost Calculator</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
 		<!-- FontAwesome -->
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 		
-		<link href="css/meetingcost.css" rel="stylesheet">
+		<link href="/css/meetingcost.css" rel="stylesheet">
 
 	</head>
 
@@ -33,22 +33,12 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="/">Meeting Cost Calculator</a> 
-		      <a class="navbar-brand" href="/">&raquo;&nbsp; Core Public Service</a>
+		      <a class="navbar-brand" href="#">Meeting Cost Calculator</a> 
 		    </div>
 		    <div id="navbar" class="navbar-collapse collapse">
 
 		      <ul class="nav navbar-nav navbar-right">
 
-		        <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Switch organization <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="/core">Core Public Service</a></li>
-						<li><a href="/caf">Canadian Armed Forces</a></li>
-						<li><a href="/cra">Canadian Revenue Agency</a></li>
-						<li><a href="/neb">National Energy Board</a></li>
-					</ul>
-				</li>
 				<li><a href="#">About</a></li>
 				<!-- <li><a href="#">Français</a></li> -->
 				<!-- (Coming soon!) -->
@@ -116,11 +106,34 @@
 			<div class="add-chairs-container">
 
 				<div style="float:left; margin-right: 10px;">
+
+					<!-- Single button -->
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Options">
+							<i class="fa fa-cog" aria-hidden="true"></i>
+							<span class="sr-only">Options</span>
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li class="dropdown-header">Organization</li>
+							<li><a href="#">Core Public Service</a></li>
+							<li><a href="#">Canadian Armed Forces</a></li>
+							<li role="separator" class="divider"></li>
+							<li class="dropdown-header">Pay rate</li>
+							<li><a href="#">Minimum</a></li>
+							<li><a href="#">Median</a></li>
+							<li><a href="#">Maximum</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+				<div style="float:left; margin-right: 10px;">
 					<select class="form-control input-lg js-user-type-select" style="max-width: 200px;"></select>
 				</div>
 
 				<div style="float:left; margin-right: 10px;">
-					<button class="btn btn-lg btn-default js-add-user" title="Add Participant">
+					<button type="button" class="btn btn-lg btn-default js-add-user" title="Add Participant">
 						<i class="fa fa-user-plus" aria-hidden="true"></i>
 						<span class="hidden-xs">Add Participant</span>
 					</button>
@@ -186,8 +199,8 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
 		<!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
 		<script src="/js/bootstrap.min.js"></script>
-		<script src="js/meetingcost.js"></script>
-		<script src="js/rates.js"></script>
+		<script src="/js/meetingcost.js"></script>
+		<script src="/js/rates.js"></script>
 
 		<script type="text/javascript">
 $(function() {
