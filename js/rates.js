@@ -2,8 +2,24 @@
 
 var app = app || {};
 
-// Placeholder for actual rates of pay data
-app.rates = [
+app.organizations = {
+  'core': {
+    name: 'Core Public Service',
+    hideDropdownLabels: 0
+  },
+  'caf': {
+    name: 'Canadian Armed Forces',
+    hideDropdownLabels: 1
+  }
+}
+
+// Holder for rates from multiple organizations
+app.rates = app.rates || {};
+
+// TBS Rates of Pay
+// Adapted from,
+// https://www.tbs-sct.gc.ca/pubs_pol/hrpubs/coll_agre/rates-taux-eng.asp
+app.rates.core = [
   {
     "label": "AS-1",
     "description": "Administrative Services",
@@ -669,6 +685,337 @@ app.rates = [
     "median": "202500",
     "max": "202500"
   }
+]
+
+;
+
+
+// Canadian Armed Forces
+// Data from
+// http://www.forces.gc.ca/en/caf-community-pay/pay-rates.page
+app.rates.caf = [
+    {
+        "label": "Pvt",
+        "description": "Private",
+        "min": "33672",
+        "median": "37416",
+        "max": "41160"
+    },
+    {
+        "label": "Cpl",
+        "description": "Corporal",
+        "min": "56568",
+        "median": "64506",
+        "max": "72444"
+    },
+    {
+        "label": "MCpl",
+        "description": "Master-Corporal",
+        "min": "58944",
+        "median": "66966",
+        "max": "74988"
+    },
+    {
+        "label": "Sgt",
+        "description": "Sergeant",
+        "min": "64992",
+        "median": "72504",
+        "max": "80016"
+    },
+    {
+        "label": "WO",
+        "description": "Warrant Officer",
+        "min": "72396",
+        "median": "78528",
+        "max": "84660"
+    },
+    {
+        "label": "MWO",
+        "description": "Master Warrant Officer",
+        "min": "79908",
+        "median": "85134",
+        "max": "90360"
+    },
+    {
+        "label": "CWO",
+        "description": "Chief Warrant Officer",
+        "min": "88716",
+        "median": "95772",
+        "max": "102828"
+    },
+    {
+        "label": "OCdt-A",
+        "description": "Officer Cadet (ROTP)",
+        "min": "18804",
+        "median": "19398",
+        "max": "19992"
+    },
+    {
+        "label": "OCdt-B",
+        "description": "Officer Cadet (OCTP-NFS)",
+        "min": "33972",
+        "median": "38232",
+        "max": "42492"
+    },
+    {
+        "label": "2LT-A",
+        "description": "Second Lieutenant (ROTP)",
+        "min": "53868",
+        "median": "54252",
+        "max": "54636"
+    },
+    {
+        "label": "2LT-B",
+        "description": "Second Lieutenant (OCTP-NFS)",
+        "min": "42816",
+        "median": "48408",
+        "max": "54000"
+    },
+    {
+        "label": "2LT-C",
+        "description": "Second Lieutenant (DEO)",
+        "min": "46068",
+        "median": "57912",
+        "max": "69756"
+    },
+    {
+        "label": "2LT-D",
+        "description": "Second Lieutenant (UTP-NCM)",
+        "min": "58800",
+        "median": "68898",
+        "max": "78996"
+    },
+    {
+        "label": "2LT-E",
+        "description": "Second Lieutenant (CFR)",
+        "min": "59508",
+        "median": "69714",
+        "max": "79920"
+    },
+    {
+        "label": "LT-A",
+        "description": "Lieutenant (ROTP)",
+        "min": "58704",
+        "median": "64668",
+        "max": "70632"
+    },
+    {
+        "label": "LT-B",
+        "description": "Lieutenant (OCTP-NFS)",
+        "min": "45336",
+        "median": "54504",
+        "max": "63672"
+    },
+    {
+        "label": "LT-C",
+        "description": "Lieutenant (DEO)",
+        "min": "50640",
+        "median": "60636",
+        "max": "70632"
+    },
+    {
+        "label": "LT-D",
+        "description": "Lieutenant (UTP-NCM)",
+        "min": "60384",
+        "median": "74880",
+        "max": "89376"
+    },
+    {
+        "label": "LT-E",
+        "description": "Lieutenant (CFR)",
+        "min": "62712",
+        "median": "77796",
+        "max": "92880"
+    },
+    {
+        "label": "Capt-JR",
+        "description": "Captain (Junior)",
+        "min": "74424",
+        "median": "80028",
+        "max": "85632"
+    },
+    {
+        "label": "Capt-SNR",
+        "description": "Captain (Senior)",
+        "min": "88296",
+        "median": "93330",
+        "max": "98364"
+    },
+    {
+        "label": "Maj",
+        "description": "Major",
+        "min": "100632",
+        "median": "106740",
+        "max": "112848"
+    },
+    {
+        "label": "LCol",
+        "description": "Lieutenant-Colonel",
+        "min": "116628",
+        "median": "120378",
+        "max": "124128"
+    },
+    {
+        "label": "Col",
+        "description": "Colonel",
+        "min": "133944",
+        "median": "141870",
+        "max": "149796"
+    },
+    {
+        "label": "BGen",
+        "description": "Brigadier-General",
+        "min": "158508",
+        "median": "165054",
+        "max": "171600"
+    },
+    {
+        "label": "MGen",
+        "description": "Major-General",
+        "min": "181932",
+        "median": "197814",
+        "max": "213696"
+    },
+    {
+        "label": "LGen",
+        "description": "Lieutenant-General",
+        "min": "233508",
+        "median": "243156",
+        "max": "252804"
+    },
+    {
+        "label": "Capt-JR (PLT)",
+        "description": "Captain (Junior); Pilot",
+        "min": "75432",
+        "median": "87894",
+        "max": "100356"
+    },
+    {
+        "label": "Capt-SNR (PLT)",
+        "description": "Captain (Senior); Pilot",
+        "min": "104280",
+        "median": "108222",
+        "max": "112164"
+    },
+    {
+        "label": "Maj (PLT)",
+        "description": "Major; Pilot",
+        "min": "113364",
+        "median": "116544",
+        "max": "119724"
+    },
+    {
+        "label": "LCol (PLT)",
+        "description": "Lieutenant-Colonel; Pilot",
+        "min": "120900",
+        "median": "123546",
+        "max": "126192"
+    },
+    {
+        "label": "2LT (MD)",
+        "description": "Second Lieutenant; Medical\/Dental",
+        "min": "49956",
+        "median": "53910",
+        "max": "57864"
+    },
+    {
+        "label": "LT (MD)",
+        "description": "Lieutenant; Medical\/Dental",
+        "min": "61824",
+        "median": "63816",
+        "max": "65808"
+    },
+    {
+        "label": "Capt (MD)",
+        "description": "Captain; Medical\/Dental",
+        "min": "128652",
+        "median": "156804",
+        "max": "184956"
+    },
+    {
+        "label": "Maj (MD)",
+        "description": "Major; Medical\/Dental",
+        "min": "179832",
+        "median": "190068",
+        "max": "200304"
+    },
+    {
+        "label": "Maj-S (MD)",
+        "description": "Major (Specialist); Medical\/Dental",
+        "min": "215796",
+        "median": "228078",
+        "max": "240360"
+    },
+    {
+        "label": "LCol (MD)",
+        "description": "Lieutenant-Colonel; Medical\/Dental",
+        "min": "206640",
+        "median": "223950",
+        "max": "241260"
+    },
+    {
+        "label": "LCol-S (MD)",
+        "description": "Lieutenant-Colonel (Specialist); Medical\/Dental",
+        "min": "254904",
+        "median": "272208",
+        "max": "289512"
+    },
+    {
+        "label": "Col (MD)",
+        "description": "Colonel; Medical\/Dental",
+        "min": "215856",
+        "median": "234948",
+        "max": "254040"
+    },
+    {
+        "label": "Col-S (MD)",
+        "description": "Colonel (Specialist); Medical\/Dental",
+        "min": "259032",
+        "median": "281940",
+        "max": "304848"
+    },
+    {
+        "label": "BGen (MD)",
+        "description": "Brigadier-General; Medical\/Dental",
+        "min": "228972",
+        "median": "249192",
+        "max": "269412"
+    },
+    {
+        "label": "Capt (LGL)",
+        "description": "Captain; Legal",
+        "min": "76812",
+        "median": "93198",
+        "max": "109584"
+    },
+    {
+        "label": "Maj (LGL)",
+        "description": "Major; Legal",
+        "min": "117312",
+        "median": "135756",
+        "max": "154200"
+    },
+    {
+        "label": "LCol (LGL)",
+        "description": "Lieutenant-Colonel; Legal",
+        "min": "165444",
+        "median": "170100",
+        "max": "174756"
+    },
+    {
+        "label": "Col (LGL)",
+        "description": "Colonel; Legal",
+        "min": "189636",
+        "median": "204912",
+        "max": "220188"
+    },
+    {
+        "label": "BGen (LGL)",
+        "description": "Brigadier-General; Legal",
+        "min": "185988",
+        "median": "206442",
+        "max": "226896"
+    }
 ]
 
 ;

@@ -50,12 +50,51 @@ $(function() {
 			app.meetingCost.subtractTime(amount, dateType);
 		});
 
+		// Change organization
+		$('.js-change-organization').on('click', function(e) {
+			var elem = $(e.currentTarget);
+			var organization = $(elem).data('organization');
+
+			// If that organization is already selected, no action required:
+			if(organization !== app.selectedOrganization) {
+
+				// Update check icons
+				$('.js-change-organization i').removeClass('fa-check');
+				$(elem).find('i').addClass('fa-check');
+
+				app.meetingCost.changeOrganization(organization);
+
+			}
+			
+		});
+
+		// Change rate
+		$('.js-change-rate').on('click', function(e) {
+			var elem = $(e.currentTarget);
+			var rate = $(elem).data('rate');
+
+			// If that organization is already selected, no action required:
+			if(rate !== app.selectedRate) {
+
+				// Update check icons
+				$('.js-change-rate i').removeClass('fa-check');
+				$(elem).find('i').addClass('fa-check');
+
+				// Update the calculated cost
+				app.selectedRate = rate;
+				app.meetingCost.recalculateCost();
+
+			}
+			
+		});
+
 		// Prepare the Lodash templates
 		app.meetingCost.chairContainerTemplate = _.template($('#chairContainerTemplate').html());
 
 		app.meetingCost.ratesSelectTemplate = _.template($('#ratesSelectTemplate').html());
 
-		$('.js-user-type-select').html(app.meetingCost.ratesSelectTemplate());
+		app.meetingCost.changeOrganization('core');
+		app.selectedRate = 'median';
 
 		// Initializes other re-resettable values
 		app.meetingCost.reset();
@@ -95,10 +134,21 @@ $(function() {
 
 	}
 
+	app.meetingCost.changeOrganization = function(organization) {
+
+		app.selectedOrganization = organization;
+
+		$('.js-user-type-select').html(app.meetingCost.ratesSelectTemplate({
+			rates: app.rates[app.selectedOrganization],
+			organization: app.organizations[app.selectedOrganization]
+		}));
+
+	}
+
 	app.meetingCost.addUser = function() {
 
 		var userType = $('.js-user-type-select').val();
-		var rateData = _.find(app.rates, {label: userType});
+		var rateData = _.find(app.rates[app.selectedOrganization], {label: userType});
 		
 		console.log('Adding user.');
 		console.log(userType);
@@ -210,9 +260,12 @@ $(function() {
 		var newCost = 0;
 		var newCostRounded = 0;
 
+		// console.log('Calculating ' + app.selectedRate);
+
 		_.each(app.meetingCost.participants, function(value, index) {
 
-			annualValue += _.parseInt(value.median);
+			annualValue += _.parseInt(value[app.selectedRate]);
+			// console.log(_.parseInt(value[app.selectedRate]));
 
 		});
 

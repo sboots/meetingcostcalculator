@@ -116,13 +116,28 @@
 						</button>
 						<ul class="dropdown-menu">
 							<li class="dropdown-header">Organization</li>
-							<li><a href="#">Core Public Service</a></li>
-							<li><a href="#">Canadian Armed Forces</a></li>
+							<li><a href="#" class="js-change-organization" data-organization="core">
+								<i class="fa fa-check fa-fw" aria-hidden="true"></i>
+								Core Public Service
+							</a></li>
+							<li><a href="#" class="js-change-organization" data-organization="caf">
+								<i class="fa fa-fw" aria-hidden="true"></i>
+								Canadian Armed Forces
+							</a></li>
 							<li role="separator" class="divider"></li>
 							<li class="dropdown-header">Pay rate</li>
-							<li><a href="#">Minimum</a></li>
-							<li><a href="#">Median</a></li>
-							<li><a href="#">Maximum</a></li>
+							<li><a href="#" class="js-change-rate" data-rate="min">
+								<i class="fa fa-fw" aria-hidden="true"></i>
+								Minimum
+							</a></li>
+							<li><a href="#" class="js-change-rate" data-rate="median">
+								<i class="fa fa-check fa-fw" aria-hidden="true"></i>
+								Median
+							</a></li>
+							<li><a href="#" class="js-change-rate" data-rate="max">
+								<i class="fa fa-fw" aria-hidden="true"></i>
+								Maximum
+							</a></li>
 						</ul>
 					</div>
 
@@ -180,9 +195,9 @@
 
 <option value="">(Choose participants)</option>
 
-<% _.each(app.rates, function(value, index) { %>
+<% _.each(rates, function(value, index) { %>
 
-	<option value="<%- value.label %>"><%- value.label %> <%- value.description %></option>
+	<option value="<%- value.label %>"><% if(organization.hideDropdownLabels == 0) { %><%- value.label %> <% } %><%- value.description %></option>
 
 <% }) %>
 
