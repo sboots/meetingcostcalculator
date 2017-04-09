@@ -239,7 +239,10 @@ $(function() {
 	app.meetingCost.updateTimeClock = function() {
 
 		// var timeClockString = app.meetingCost.timeElapsedMoment.hours() + ':' + app.meetingCost.timeElapsedMoment.minutes() + ':' + app.meetingCost.timeElapsedMoment.seconds();
-		var timeClockString = app.meetingCost.timeElapsedMoment.format('h:mm:ss');
+		// var timeClockString = app.meetingCost.timeElapsedMoment.format('h:mm:ss');
+		var timeClockString = numeral(app.meetingCost.timeElapsedMoment.format('s')).format('00:00:00');
+
+		
 
 		$('.js-time-elapsed-input').val(timeClockString);
 
@@ -275,9 +278,9 @@ $(function() {
 
 		newCost = annualValue / 1950 / 3600 * app.meetingCost.timeElapsedMoment.format('s');
 
-		newCostRounded = _.parseInt(newCost * 100) / 100;
+		// newCostRounded = _.parseInt(newCost * 100) / 100;
 
-		$('.js-cost-display').text(newCostRounded);
+		$('.js-cost-display').text(numeral(newCost).format('$0,0.00'));
 
 		return newCost;
 

@@ -11,7 +11,7 @@
 
 .clock-display {
 	font-size: 30px;
-	padding-top: 2px;
+	/*padding-top: 2px;*/
 }
 .clock-display-container {
 	text-align: right;
