@@ -9,7 +9,7 @@
 		<meta name="author" content="https://twitter.com/sboots2">
 		<!-- <link rel="icon" href="../../favicon.ico"> -->
 
-		<title>Meeting Cost Calculator</title>
+		<title>Meeting Cost Calculator – Core Public Service</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -23,23 +23,56 @@
 
 	<body>
 
-		<div class="container">
+		<!-- Static navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="/">Meeting Cost Calculator</a> 
+		      <a class="navbar-brand" href="/">&raquo;&nbsp; Core Public Service</a>
+		    </div>
+		    <div id="navbar" class="navbar-collapse collapse">
 
-			<div class="title-top">
-				<span>Federal Public Service</span>
-				<h1>Meeting Cost Calculator</h1>
-			</div>
-		</div>
+		      <ul class="nav navbar-nav navbar-right">
+
+		        <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Switch organization <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/core">Core Public Service</a></li>
+						<li><a href="/caf">Canadian Armed Forces</a></li>
+						<li><a href="/cra">Canadian Revenue Agency</a></li>
+						<li><a href="/neb">National Energy Board</a></li>
+					</ul>
+				</li>
+				<li><a href="#">About</a></li>
+				<!-- <li><a href="#">Français</a></li> -->
+				<!-- (Coming soon!) -->
+
+		      </ul>
+		    </div><!--/.nav-collapse -->
+		  </div>
+		</nav>
+
 
 		<div class="container">
 
 			<div class="time-controls-container">
 
 				<div style="float: left; max-width: 100px; margin-right: 10px;">
-					<input type="text" class="form-control input-lg js-time-elapsed-input" autocomplete="off">
+					<label for="timeInput">Time</label>
+
+					<input type="text" id="timeInput" class="form-control input-lg js-time-elapsed-input" autocomplete="off">
 				</div>
 
 				<div style="float: left; margin-right: 10px;">
+
+					<label for="timeInput">Controls</label><br/>
+
 					<button class="btn btn-lg btn-default js-start-time" title="Start Timer">
 						<i class="fa fa-play" aria-hidden="true"></i>
 						<span class="hidden-xs">Start</span>
@@ -51,6 +84,9 @@
 				</div>
 
 				<div style="float: left;">
+
+					<label>Jump forward/back</label><br/>
+
 					<button class="btn btn-lg btn-default js-add-time" data-amount="15" data-date-type="minutes" title="Add 15 minutes">
 						<i class="fa fa-plus" aria-hidden="true"></i>
 						<span class="hidden-xs">15 min</span>
@@ -61,8 +97,12 @@
 					</button>
 				</div>
 
-				<div class="clock-display">
+				<div class="clock-display-container">
+					<label>Cost</label><br/>
+
+					<div class="clock-display">
 					$<span class="js-cost-display">0</span>
+					</div>
 				</div>
 
 			</div>

@@ -11,8 +11,10 @@
 
 .clock-display {
 	font-size: 30px;
-	text-align: right;
 	padding-top: 2px;
+}
+.clock-display-container {
+	text-align: right;
 }
 
 .add-chairs-container {
