@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="A helper tool to calculate the cost of public service meetings, based on the TBS Rates of Pay.">
+		<meta name="author" content="https://twitter.com/sboots2">
+		<!-- <link rel="icon" href="../../favicon.ico"> -->
+
+		<title>Meeting Cost Calculator</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- FontAwesome -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		
+		<link href="css/meetingcost.css" rel="stylesheet">
+
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<div class="title-top">
+				<span>Federal Public Service</span>
+				<h1>Meeting Cost Calculator</h1>
+			</div>
+		</div>
+
+		<div class="container">
+
+			<div class="time-controls-container">
+
+				<div style="float: left; max-width: 100px; margin-right: 10px;">
+					<input type="text" class="form-control input-lg js-time-elapsed-input" autocomplete="off">
+				</div>
+
+				<div style="float: left; margin-right: 10px;">
+					<button class="btn btn-lg btn-default js-start-time" title="Start Timer">
+						<i class="fa fa-play" aria-hidden="true"></i>
+						<span class="hidden-xs">Start</span>
+					</button>
+					<button class="btn btn-lg btn-default js-stop-time" title="Stop Timer">
+						<i class="fa fa-stop" aria-hidden="true"></i>
+						<span class="hidden-xs">Stop</span>
+					</button>
+				</div>
+
+				<div style="float: left;">
+					<button class="btn btn-lg btn-default js-add-time" data-amount="15" data-date-type="minutes" title="Add 15 minutes">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+						<span class="hidden-xs">15 min</span>
+					</button>
+					<button class="btn btn-lg btn-default js-remove-time" data-amount="15" data-date-type="minutes" title="Subtract 15 minutes">
+						<i class="fa fa-minus" aria-hidden="true"></i>
+						<span class="hidden-xs">15 min</span>
+					</button>
+				</div>
+
+				<div class="clock-display">
+					$<span class="js-cost-display">0</span>
+				</div>
+
+			</div>
+
+			
+			
+		</div>
+
+		<div class="container">
+
+			<div class="add-chairs-container">
+
+				<div style="float:left; margin-right: 10px;">
+					<select class="form-control input-lg js-user-type-select" style="max-width: 200px;"></select>
+				</div>
+
+				<div style="float:left; margin-right: 10px;">
+					<button class="btn btn-lg btn-default js-add-user" title="Add Participant">
+						<i class="fa fa-user-plus" aria-hidden="true"></i>
+						<span class="hidden-xs">Add Participant</span>
+					</button>
+				</div>
+
+				<div style="float:right;">
+					<button class="btn btn-lg btn-default js-reset" title="Reset all participants">
+						<span class="visible-xs"><i class="fa fa-close" aria-hidden="true"></i></span>
+						<span class="hidden-xs">Reset</span>
+					</button>
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="chairs-map"></div>
+
+		</div><!-- /.container -->
+
+		<!-- Lodash templates -->
+<script type="text/template" id="chairContainerTemplate">
+
+<% if(_.isEmpty(app.meetingCost.participants)) { %>
+
+	<p><em>No participants have been added yet.</em></p>
+
+<% } else { %>
+
+	<% _.each(app.meetingCost.participants, function(value, index) { %>
+
+		<div class="chair js-remove-user" data-user-index="<%- index %>" title="<%- value.label %> <%- value.description %>">
+			<i class="fa fa-user fa-3x" aria-hidden="true"></i>
+			<span class="chair-label"><%- value.label %></span>
+		</div>
+
+	<% }) %>
+
+<% } %>
+
+
+</script>
+
+<script type="text/template" id="ratesSelectTemplate">
+
+<option value="">(Choose participants)</option>
+
+<% _.each(app.rates, function(value, index) { %>
+
+	<option value="<%- value.label %>"><%- value.label %> <%- value.description %></option>
+
+<% }) %>
+
+
+</script>
+
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.2/lodash.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
+		<!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="js/meetingcost.js"></script>
+		<script src="js/rates.js"></script>
+
+		<script type="text/javascript">
+$(function() {
+	'use strict';
+
+	app.meetingCost.initialize();
+});
+		</script>
+	</body>
+</html>
