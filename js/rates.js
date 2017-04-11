@@ -7,6 +7,10 @@ app.organizations = {
     name: 'Core Public Service',
     hideDropdownLabels: 0
   },
+  'neb': {
+    name: 'National Energy Board',
+    hideDropdownLabels: 0
+  },
   'caf': {
     name: 'Canadian Armed Forces',
     hideDropdownLabels: 1
@@ -1015,6 +1019,105 @@ app.rates.caf = [
         "min": "185988",
         "median": "206442",
         "max": "226896"
+    }
+]
+
+;
+
+// National Energy Board rates
+// (including Calgary bonus)
+// Submitted.
+app.rates.neb = [
+    {
+        "label": "NEB 4",
+        "description": "",
+        "min": "42816.45",
+        "median": "47451.57",
+        "max": "52086.69"
+    },
+    {
+        "label": "NEB 5",
+        "description": "",
+        "min": "48164.70",
+        "median": "53451.56",
+        "max": "58738.42"
+    },
+    {
+        "label": "NEB 6",
+        "description": "",
+        "min": "54312.67",
+        "median": "60272.26",
+        "max": "66231.85"
+    },
+    {
+        "label": "NEB 7",
+        "description": "",
+        "min": "61375.81",
+        "median": "68023.87",
+        "max": "74671.93"
+    },
+    {
+        "label": "NEB 8",
+        "description": "",
+        "min": "69201.93",
+        "median": "76697.98",
+        "max": "84194.04"
+    },
+    {
+        "label": "NEB 9",
+        "description": "",
+        "min": "81149.44",
+        "median": "89937.95",
+        "max": "98726.47"
+    },
+    {
+        "label": "NEB 10",
+        "description": "",
+        "min": "91492.26",
+        "median": "101404.26",
+        "max": "111316.27"
+    },
+    {
+        "label": "NEB 11",
+        "description": "",
+        "min": "100183.17",
+        "median": "111036.05",
+        "max": "121888.93"
+    },
+    {
+        "label": "NEB 12",
+        "description": "",
+        "min": "109700.04",
+        "median": "121584.58",
+        "max": "133469.11"
+    },
+    {
+        "label": "NEB 13",
+        "description": "",
+        "min": "119852.90",
+        "median": "134913.23",
+        "max": "149973.55"
+    },
+    {
+        "label": "NEB 14",
+        "description": "",
+        "min": "134965.70",
+        "median": "151862.65",
+        "max": "168759.60"
+    },
+    {
+        "label": "NEB 15",
+        "description": "",
+        "min": "149868.60",
+        "median": "168497.23",
+        "max": "187125.85"
+    },
+    {
+        "label": "NEB 16",
+        "description": "",
+        "min": "167500.20",
+        "median": "188490.20",
+        "max": "209480.20"
     }
 ]
 
