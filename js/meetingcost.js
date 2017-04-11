@@ -10,6 +10,7 @@ $(function() {
 	app.meetingCost.timeElapsedMoment;
 	
 	app.meetingCost.timerIsRunning = 0;
+	app.meetingCost.previousTimerSeconds = 0;
 
 	app.meetingCost.initialize = function() {
 
@@ -108,6 +109,7 @@ $(function() {
 	app.meetingCost.reset = function(e) {
 
 		app.meetingCost.timerIsRunning = 0;
+		app.meetingCost.previousTimerSeconds = 0;
 
 		app.meetingCost.timeElapsedSeconds = 0;
 		app.meetingCost.participants = [];
@@ -207,10 +209,34 @@ $(function() {
 	// Runs once per second
 	app.meetingCost.tick = function() {
 
-		// console.log('Ticking');
+		var newTickSeconds;
+		var timeDifference;
 
 		if(app.meetingCost.timerIsRunning) {
-			app.meetingCost.addTime(1, 'seconds');
+
+			newTickSeconds = moment().unix();
+
+			// If the ticker is already in progress,
+			// compare the total seconds to the previous time the 
+			// tick ran.
+			// This helps with situations where eg. a smartphone
+			// goes to sleep while the timer is running.
+			// This way, when the tick resumes, it'll add the missing seconds.
+			if(app.meetingCost.previousTimerSeconds) {
+				timeDifference = newTickSeconds - app.meetingCost.previousTimerSeconds;
+			}
+			else {
+				// First time use:
+				timeDifference = 1;
+			}
+
+			// console.log('Ticking');
+			// console.log(newTickSeconds);
+			// console.log(timeDifference);
+
+			app.meetingCost.previousTimerSeconds = newTickSeconds;
+
+			app.meetingCost.addTime(timeDifference, 'seconds');
 		}
 
 		// Run it again!
@@ -230,6 +256,7 @@ $(function() {
 	app.meetingCost.stopTime = function(e) {
 
 		app.meetingCost.timerIsRunning = 0;
+		app.meetingCost.previousTimerSeconds = 0;
 
 		$('.js-stop-time').prop('disabled', 1);
 		$('.js-start-time').prop('disabled', 0);
