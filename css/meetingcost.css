@@ -52,3 +52,27 @@ div.chair:hover {
 	background-color: #fafafa;
 	border-color: #999;
 }
+
+@media (min-width: 1px) {
+
+	.js-user-type-select {
+		max-width: 110px;
+	}
+
+}
+
+@media (min-width: 768px) {
+
+	.js-user-type-select {
+		max-width: 200px;
+	}
+
+}
+
+@media (min-width: 992px) {
+
+	.js-user-type-select {
+		max-width: 300px;
+	}
+
+}

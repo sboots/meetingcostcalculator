@@ -53,47 +53,61 @@
 
 			<div class="time-controls-container">
 
-				<div style="float: left; max-width: 100px; margin-right: 10px;">
-					<label for="timeInput">Time</label>
+				<div class="row">
 
-					<input type="text" id="timeInput" class="form-control input-lg js-time-elapsed-input" autocomplete="off">
-				</div>
+					<div class="col-sm-9">
 
-				<div style="float: left; margin-right: 10px;">
+						<div style="float: left; max-width: 96px; margin-right: 10px;">
+							<label for="timeInput">Time</label>
 
-					<label for="timeInput">Controls</label><br/>
+							<input type="text" id="timeInput" class="form-control input-lg js-time-elapsed-input" autocomplete="off">
+						</div>
 
-					<button class="btn btn-lg btn-default js-start-time" title="Start Timer">
-						<i class="fa fa-play" aria-hidden="true"></i>
-						<span class="hidden-xs">Start</span>
-					</button>
-					<button class="btn btn-lg btn-default js-stop-time" title="Stop Timer">
-						<i class="fa fa-stop" aria-hidden="true"></i>
-						<span class="hidden-xs">Stop</span>
-					</button>
-				</div>
+						<div style="float: left; margin-right: 10px;">
 
-				<div style="float: left;">
+							<label for="timeInput">Controls</label><br/>
 
-					<label>Jump forward/back</label><br/>
+							<button class="btn btn-lg btn-default js-start-time" title="Start Timer">
+								<i class="fa fa-play" aria-hidden="true"></i>
+								<span class="hidden-xs">Start</span>
+							</button>
+							<button class="btn btn-lg btn-default js-stop-time" title="Stop Timer">
+								<i class="fa fa-stop" aria-hidden="true"></i>
+								<span class="hidden-xs">Stop</span>
+							</button>
+						</div>
 
-					<button class="btn btn-lg btn-default js-add-time" data-amount="15" data-date-type="minutes" title="Add 15 minutes">
-						<i class="fa fa-plus" aria-hidden="true"></i>
-						<span class="hidden-xs">15 min</span>
-					</button>
-					<button class="btn btn-lg btn-default js-remove-time" data-amount="15" data-date-type="minutes" title="Subtract 15 minutes">
-						<i class="fa fa-minus" aria-hidden="true"></i>
-						<span class="hidden-xs">15 min</span>
-					</button>
-				</div>
+						<div style="float: left;">
 
-				<div class="clock-display-container">
-					<label>Cost</label><br/>
+							<label>Jump forward/back</label><br/>
 
-					<div class="clock-display">
-					<span class="js-cost-display">0</span>
+							<button class="btn btn-lg btn-default js-add-time" data-amount="15" data-date-type="minutes" title="Add 15 minutes">
+								<i class="fa fa-plus" aria-hidden="true"></i>
+								<span class="hidden-xs">15 min</span>
+							</button>
+							<button class="btn btn-lg btn-default js-remove-time" data-amount="15" data-date-type="minutes" title="Subtract 15 minutes">
+								<i class="fa fa-minus" aria-hidden="true"></i>
+								<span class="hidden-xs">15 min</span>
+							</button>
+						</div>
+
 					</div>
+
+					<div class="col-sm-3">
+						<div class="clock-display-container" style="clear: both;">
+							<label>Cost</label><br/>
+
+							<div class="clock-display">
+							<span class="js-cost-display">0</span>
+							</div>
+						</div>
+					</div>
+
 				</div>
+
+				
+
+				
 
 			</div>
 
@@ -144,7 +158,7 @@
 				</div>
 
 				<div style="float:left; margin-right: 10px;">
-					<select class="form-control input-lg js-user-type-select" style="max-width: 200px;"></select>
+					<select class="form-control input-lg js-user-type-select"></select>
 				</div>
 
 				<div style="float:left; margin-right: 10px;">
