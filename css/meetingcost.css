@@ -53,6 +53,10 @@ div.chair:hover {
 	border-color: #999;
 }
 
+.js-start-time, .js-stop-time {
+	width: 98px;
+}
+
 @media (min-width: 1px) {
 
 	.js-user-type-select {
@@ -61,10 +65,18 @@ div.chair:hover {
 
 }
 
+@media (min-width: 480px) {
+
+	.js-user-type-select {
+		max-width: 150px;
+	}
+
+}
+
 @media (min-width: 768px) {
 
 	.js-user-type-select {
-		max-width: 200px;
+		max-width: 230px;
 	}
 
 }

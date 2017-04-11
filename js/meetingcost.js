@@ -32,6 +32,10 @@ $(function() {
 			app.meetingCost.stopTime(e);
 		});
 		$('.js-reset').on('click', function(e) {
+			app.meetingCost.reset(e, 1);
+		});
+
+		$('.js-reset-time').on('click', function(e) {
 			app.meetingCost.reset(e);
 		});
 
@@ -106,13 +110,18 @@ $(function() {
 	}
 
 
-	app.meetingCost.reset = function(e) {
+	app.meetingCost.reset = function(e, resetChairs) {
 
 		app.meetingCost.timerIsRunning = 0;
 		app.meetingCost.previousTimerSeconds = 0;
 
 		app.meetingCost.timeElapsedSeconds = 0;
-		app.meetingCost.participants = [];
+		
+		if(resetChairs === 1) {
+			app.meetingCost.participants = [];
+
+			$('.js-reset').prop('disabled', 1);
+		}
 
 		app.meetingCost.timeElapsedMoment = moment.duration(0);
 
@@ -125,7 +134,7 @@ $(function() {
 		// Initialize the start/stop buttons (essentially - disabling the "Stop" button while inactive)
 		app.meetingCost.stopTime();
 
-		$('.js-reset').prop('disabled', 1);
+		$('.js-reset-time').prop('disabled', 1);
 
 
 	}
@@ -191,6 +200,8 @@ $(function() {
 
 	app.meetingCost.addTime = function(amount, dateType) {
 
+		$('.js-reset-time').prop('disabled', 0);
+
 		app.meetingCost.timeElapsedMoment.add(_.parseInt(amount), dateType);
 
 		app.meetingCost.updateTimeClock();
@@ -200,6 +211,14 @@ $(function() {
 	app.meetingCost.subtractTime = function(amount, dateType) {
 
 		app.meetingCost.timeElapsedMoment.subtract(_.parseInt(amount), dateType);
+
+		// Avoid negative values
+		if(app.meetingCost.timeElapsedMoment.as('seconds') < 0) {
+
+			app.meetingCost.timeElapsedMoment = moment.duration(0);
+			$('.js-reset-time').prop('disabled', 1);
+			
+		}
 
 		app.meetingCost.updateTimeClock();
 
@@ -248,8 +267,10 @@ $(function() {
 
 		app.meetingCost.timerIsRunning = 1;
 
-		$('.js-stop-time').prop('disabled', 0);
-		$('.js-start-time').prop('disabled', 1);
+		$('.js-stop-time').prop('disabled', 0).show();
+		$('.js-start-time').prop('disabled', 1).hide();
+
+		$('.js-reset-time').prop('disabled', 0);
 
 	}
 
@@ -258,8 +279,8 @@ $(function() {
 		app.meetingCost.timerIsRunning = 0;
 		app.meetingCost.previousTimerSeconds = 0;
 
-		$('.js-stop-time').prop('disabled', 1);
-		$('.js-start-time').prop('disabled', 0);
+		$('.js-stop-time').prop('disabled', 1).hide();
+		$('.js-start-time').prop('disabled', 0).show();
 
 	}
 
