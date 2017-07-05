@@ -9,7 +9,7 @@ $(function() {
 	app.meetingCost.timeElapsedSeconds;
 	app.meetingCost.timeElapsedMoment;
 	
-	app.meetingCost.timerIsRunning = 0;
+	app.meetingCost.isTimerRunning = false;
 	app.meetingCost.previousTimerSeconds = 0;
 
 	app.meetingCost.initialize = function() {
@@ -112,7 +112,7 @@ $(function() {
 
 	app.meetingCost.reset = function(e, resetChairs) {
 
-		app.meetingCost.timerIsRunning = 0;
+		app.meetingCost.isTimerRunning = false;
 		app.meetingCost.previousTimerSeconds = 0;
 
 		app.meetingCost.timeElapsedSeconds = 0;
@@ -168,6 +168,8 @@ $(function() {
 		// Don't add if it's the "Choose participants" option
 		if (rateData) {
 			app.meetingCost.participants.push(rateData);
+		} else {
+			$("#user-type").animateCss("shake");
 		}
 
 		
@@ -231,7 +233,7 @@ $(function() {
 		var newTickSeconds;
 		var timeDifference;
 
-		if(app.meetingCost.timerIsRunning) {
+		if(app.meetingCost.isTimerRunning) {
 
 			newTickSeconds = moment().unix();
 
@@ -265,7 +267,7 @@ $(function() {
 
 	app.meetingCost.startTime = function(e) {
 
-		app.meetingCost.timerIsRunning = 1;
+		app.meetingCost.isTimerRunning = true;
 
 		$('.js-stop-time').prop('disabled', 0).show();
 		$('.js-start-time').prop('disabled', 1).hide();
@@ -276,7 +278,7 @@ $(function() {
 
 	app.meetingCost.stopTime = function(e) {
 
-		app.meetingCost.timerIsRunning = 0;
+		app.meetingCost.isTimerRunning = false;
 		app.meetingCost.previousTimerSeconds = 0;
 
 		$('.js-stop-time').prop('disabled', 1).hide();
