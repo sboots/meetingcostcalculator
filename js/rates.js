@@ -7,6 +7,10 @@ app.organizations = {
     name: 'Core Public Service',
     hideDropdownLabels: 0
   },
+  'cbsa': {
+    name: 'Canada Border Services Agency',
+    hideDropdownLabels: 0
+  },
   'neb': {
     name: 'National Energy Board',
     hideDropdownLabels: 0
@@ -1023,6 +1027,69 @@ app.rates.caf = [
 ]
 
 ;
+
+// Canada Border Services Agency Rates
+// Border Services Group
+
+app.rates.cbsa = [
+    {
+        "label": "FB-1",
+        "description": "Border Services",
+        "min": "54141",
+        "median": "57184.50",
+        "max": "60377"
+    },
+    {
+        "label": "FB-2",
+        "description": "Border Services",
+        "min": "58078",
+        "median": "61386.50",
+        "max": "64859"
+    },
+    {
+        "label": "FB-3",
+        "description": "Border Services",
+        "min": "62697",
+        "median": "66315",
+        "max": "70120"
+    },
+    {
+        "label": "FB-4",
+        "description": "Border Services",
+        "min": "68092",
+        "median": "72075",
+        "max": "76263"
+    },
+    {
+        "label": "FB-5",
+        "description": "Border Services",
+        "min": "74482",
+        "median": "78898.50",
+        "max": "83542"
+    },
+    {
+        "label": "FB-6",
+        "description": "Border Services",
+        "min": "82078",
+        "median": "87005.5",
+        "max": "92196"
+    },
+    {
+        "label": "FB-7",
+        "description": "Border Services",
+        "min": "91160",
+        "median": "96703",
+        "max": "102544"
+    },
+    {
+        "label": "FB-8",
+        "description": "Border Services",
+        "min": "102193",
+        "median": "108404.50",
+        "max": "114952"
+    }
+]
+
 
 // National Energy Board rates
 // (including Calgary bonus)
