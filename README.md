@@ -7,5 +7,5 @@ Ever wondered how much your team meetings cost? The Meeting Cost Calculator lets
 
 Feedback and improvements are welcome! You can [create an issue](https://github.com/sboots/meetingcostcalculator/issues) or [get in touch](https://twitter.com/sboots/) via Twitter.
 
-An [Ottawa Civic Tech](http://www.yowcivictech.ca/) project, built by [Sean Boots](https://twitter.com/sboots/). Thanks to Dan, Conor, Corey, and David for ideas and contributions!
+An [Ottawa Civic Tech](http://ottawacivictech.ca/) project, built by [Sean Boots](https://twitter.com/sboots/). Thanks to Dan, Conor, Corey, David, Miceal, and Gordon for ideas and contributions!
 
