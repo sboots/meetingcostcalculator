@@ -11,6 +11,10 @@ app.organizations = {
     name: "National Energy Board",
     hideDropdownLabels: 0
   },
+  cse: {
+    name: "Communications Security Establishment",
+    hideDropdownLabels: 0
+  },
   caf: {
     name: "Canadian Armed Forces",
     hideDropdownLabels: 1
@@ -1072,6 +1076,90 @@ app.rates.caf = [
     min: "185988",
     median: "206442",
     max: "226896"
+  }
+];
+
+// Communications Security Establishment
+// Data from
+// https://www.cse-cst.gc.ca/en/careers-carrieres/professionals-professionnels/pay-remuneration
+
+app.rates.cse = [
+  {
+    label: "UNI-1",
+    description: "",
+    min: "38269",
+    median: "42272",
+    max: "46276"
+  },
+  {
+    label: "UNI-2",
+    description: "",
+    min: "44029",
+    median: "48818",
+    max: "53608"
+  },
+  {
+    label: "UNI-3",
+    description: "",
+    min: "48867",
+    median: "53759",
+    max: "58651"
+  },
+  {
+    label: "UNI-4",
+    description: "",
+    min: "54462",
+    median: "59306",
+    max: "64150"
+  },
+  {
+    label: "UNI-5",
+    description: "",
+    min: "60428",
+    median: "65760",
+    max: "71092"
+  },
+  {
+    label: "UNI-6",
+    description: "",
+    min: "70269",
+    median: "76469",
+    max: "82670"
+  },
+  {
+    label: "UNI-7",
+    description: "",
+    min: "78001",
+    median: "84882",
+    max: "91764"
+  },
+  {
+    label: "UNI-8",
+    description: "",
+    min: "83250",
+    median: "90596",
+    max: "97942"
+  },
+  {
+    label: "UNI-9",
+    description: "",
+    min: "89304",
+    median: "97182",
+    max: "105060"
+  },
+  {
+    label: "UNI-10",
+    description: "",
+    min: "100484",
+    median: "109350",
+    max: "118217"
+  },
+  {
+    label: "UNI-11",
+    description: "",
+    min: "113137",
+    median: "123119",
+    max: "133101"
   }
 ];
 
